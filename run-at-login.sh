@@ -1,3 +1,6 @@
+#!/usr/bin/env zsh
+set -euo pipefail
+
 # Pull down launch agent file
 mkdir -p ~/Library/LaunchAgents
 rm -rf ~/Library/LaunchAgents/com.user.machine-setup.plist

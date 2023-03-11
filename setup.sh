@@ -1,3 +1,6 @@
+#!/usr/bin/env zsh
+set -euo pipefail
+
 # Update already installed packages
 /usr/local/bin/brew update
 /usr/local/bin/brew upgrade
