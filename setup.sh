@@ -77,7 +77,7 @@ function install {
   fi
 }
 
-function importHyperSettings 
+function importHyperSettings {
   newline
   running " - Import settings file"
   rm -rf ~/.hyper.js
