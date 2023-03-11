@@ -26,6 +26,9 @@ else
   /usr/local/bin/brew install --cask --force visual-studio-code
 fi
 
+# Visual Studio Code Extensions
+/usr/local/bin/code --force --install-extension dbaeumer.vscode-eslint
+
 # Gitkraken
 if [[ $(/usr/local/bin/brew list gitkraken) ]]; then
   echo "Gitkraken already installed, skipping"
