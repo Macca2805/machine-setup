@@ -6,11 +6,12 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
+  "editor.fontFamily": "JetBrains Mono",
   "[typescript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
-  "eslint.format.enable": true,
+  "eslint.format.enable": true
 }

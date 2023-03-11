@@ -87,21 +87,21 @@ function importHyperSettings {
 
 function installVisualStudioCodeExtension {
   newline
-  checking " - $1 (Extension)"
+  checking " - Extension: $1"
   if [[ $(/usr/local/bin/code --list-extensions | grep $1) ]]; then
-    skipped " - $1 (Extension)"
+    skipped " - Extension: $1"
   else
-    running " - $1 (Extension)"
+    running " - Extension: $1"
     set +e
     /usr/local/bin/code --force --install-extension $1 >/dev/null 2>/tmp/err
     set -e
     if [[ $? -ne 0 ]]; then
-      failed " - $1 (Extension)"
+      failed " - Extension: $1"
       newline
       grey $(cat /tmp/err)
       exit 1
     el
-      completed " - $1 (Extension)"
+      completed " - Extension: $1"
     fi
   fi
 }
