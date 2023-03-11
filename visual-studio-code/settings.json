@@ -7,6 +7,7 @@
     "source.fixAll": true
   },
   "editor.fontFamily": "JetBrains Mono",
+  "editor.fontLigatures": true,
   "[typescript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
