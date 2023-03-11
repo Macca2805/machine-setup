@@ -29,6 +29,10 @@ fi
 # Visual Studio Code Extensions
 /usr/local/bin/code --force --install-extension dbaeumer.vscode-eslint
 
+# Visual Studio Code User Settings (JSON)
+rm -rf ~/Library/Application\ Support/Code/User/settings.json
+curl -fsSL https://raw.githubusercontent.com/Macca2805/machine-setup/main/visual-studio-code/settings.json > ~/Library/Application\ Support/Code/User/settings.json
+
 # Gitkraken
 if [[ $(/usr/local/bin/brew list gitkraken) ]]; then
   echo "Gitkraken already installed, skipping"
