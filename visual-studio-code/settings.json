@@ -1,4 +1,5 @@
 {
+  "workbench.colorTheme": "GitHub Dark Default",
   "workbench.sideBar.location": "right",
   "editor.formatOnSave": true,
   "editor.tabSize": 2,

@@ -18,23 +18,23 @@ function replace {
 }
 
 function checking {
-  replace "\\r \e[36m‣\e[39m [Checking]\t$1"
+  replace "\\r \e[36m‣\e[39m [Checking]\t\e[37m$1\e[39m"
 }
 
 function running {
-  replace "\\r \e[36m‣\e[39m [Running]\t$1"
+  replace "\\r \e[36m‣\e[39m [Running]\t\e[37m$1\e[39m"
 }
 
 function completed {
-  replace "\\r \e[32m✓\e[39m [Completed]\t$1"
+  replace "\\r \e[32m✓\e[39m [Completed]\t\e[37m$1\e[39m"
 }
 
 function skipped {
-  replace "\\r \e[33m-\e[39m [Skipped]\t$1"
+  replace "\\r \e[33m-\e[39m [Skipped]\t\e[37m$1\e[39m"
 }
 
 function failed {
-  replace "\\r \e[31m⨯\e[39m [Failed]\t$1"
+  replace "\\r \e[31m⨯\e[39m [Failed]\t\e[37m$1\e[39m"
 }
 
 function grey {
@@ -79,21 +79,21 @@ function installApp {
 
 function installVisualStudioCodeExtension {
   newline
-  checking " - Install Extension $1"
+  checking " - $1 (Extension)"
   if [[ $(/usr/local/bin/code --list-extensions | grep $1) ]]; then
-    skipped " - Install Extension $1"
+    skipped " - $1 (Extension)"
   else
-    running " - Install Extension $1"
+    running " - $1 (Extension)"
     set +e
     /usr/local/bin/code --force --install-extension $1 >/dev/null 2>/tmp/err
     set -e
     if [[ $? -ne 0 ]]; then
-      failed " - Install Extension $1"
+      failed " - $1 (Extension)"
       newline
       grey $(cat /tmp/err)
       exit 1
     else
-      completed " - Install Extension $1"
+      completed " - $1 (Extension)"
     fi
   fi
 }
@@ -115,8 +115,13 @@ installApp "1password"
 installApp "hyper"
 installApp "visual-studio-code"
 installVisualStudioCodeExtension "dbaeumer.vscode-eslint"
+installVisualStudioCodeExtension "yzhang.markdown-all-in-one"
+installVisualStudioCodeExtension "bierner.markdown-mermaid"
+installVisualStudioCodeExtension "ms-azuretools.vscode-docker"
+installVisualStudioCodeExtension "github.github-vscode-theme"
 importVisualStudioCodeSettings
 installApp "gitkraken"
+installApp "docker"
 
 executeHomebrewCommand cleanup
 newline
