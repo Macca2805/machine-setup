@@ -43,20 +43,20 @@ function grey {
 
 function executeHomebrewCommand {
   newline
-  running "brew $1"
+  running "brew $*"
   set +e
-  /usr/local/bin/brew $1 >/dev/null 2>/tmp/err
+  /usr/local/bin/brew $* >/dev/null 2>/tmp/err
   if [[ $? -ne 0 ]]; then
-    failed "brew $1"
+    failed "brew $*"
     grey "$(cat /tmp/err)"
     exit 1
   else
-    completed "brew $1"
+    completed "brew $*"
   fi
   set -e
 }
 
-function installApp {
+function install {
   newline
   checking "brew install $1"
   if [[ $(/usr/local/bin/brew list | grep $1) ]]; then
@@ -77,6 +77,14 @@ function installApp {
   fi
 }
 
+function importHyperSettings 
+  newline
+  running " - Import settings file"
+  rm -rf ~/.hyper.js
+  curl -fsSL https://raw.githubusercontent.com/Macca2805/machine-setup/main/hyper/.hyper.js > ~/.hyper.js
+  completed " - Import settings file"
+}
+
 function installVisualStudioCodeExtension {
   newline
   checking " - $1 (Extension)"
@@ -92,7 +100,7 @@ function installVisualStudioCodeExtension {
       newline
       grey $(cat /tmp/err)
       exit 1
-    else
+    el
       completed " - $1 (Extension)"
     fi
   fi
@@ -100,28 +108,31 @@ function installVisualStudioCodeExtension {
 
 function importVisualStudioCodeSettings {
   newline
-  running " - Import user settings (JSON)"
+  running " - Import settings file"
   rm -rf ~/Library/Application\ Support/Code/User/settings.json
   curl -fsSL https://raw.githubusercontent.com/Macca2805/machine-setup/main/visual-studio-code/settings.json > ~/Library/Application\ Support/Code/User/settings.json
-  completed " - Import user settings (JSON)"
+  completed " - Import settings file"
 }
 
 title "Machine Setup"
 
 executeHomebrewCommand update
 executeHomebrewCommand upgrade
+executeHomebrewCommand tap homebrew/cask-fonts
 
-installApp "1password"
-installApp "hyper"
-installApp "visual-studio-code"
+install "font-jetbrains-mono"
+install "1password"
+install "hyper"
+importHyperSettings
+install "visual-studio-code"
 installVisualStudioCodeExtension "dbaeumer.vscode-eslint"
 installVisualStudioCodeExtension "yzhang.markdown-all-in-one"
 installVisualStudioCodeExtension "bierner.markdown-mermaid"
 installVisualStudioCodeExtension "ms-azuretools.vscode-docker"
-installVisualStudioCodeExtension "github.github-vscode-theme"
+installVisualStudioCodeExtension "GitHub.github-vscode-theme"
 importVisualStudioCodeSettings
-installApp "gitkraken"
-installApp "docker"
+install "gitkraken"
+install "docker"
 
 executeHomebrewCommand cleanup
 newline
