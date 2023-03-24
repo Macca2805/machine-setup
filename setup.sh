@@ -122,6 +122,7 @@ executeHomebrewCommand tap homebrew/cask-fonts
 
 install "font-jetbrains-mono"
 install "1password"
+install "notion"
 install "hyper"
 importHyperSettings
 install "visual-studio-code"
