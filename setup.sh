@@ -121,8 +121,6 @@ executeHomebrewCommand upgrade
 executeHomebrewCommand tap homebrew/cask-fonts
 
 install "font-jetbrains-mono"
-install "1password"
-install "notion"
 install "hyper"
 importHyperSettings
 install "visual-studio-code"
@@ -134,6 +132,9 @@ installVisualStudioCodeExtension "GitHub.github-vscode-theme"
 importVisualStudioCodeSettings
 install "gitkraken"
 install "docker"
+install "slack"
+install "1password"
+install "notion"
 
 executeHomebrewCommand cleanup
 newline
