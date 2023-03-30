@@ -35,7 +35,7 @@ module.exports = {
     // terminal selection color
     selectionColor: 'rgba(248,28,229,0.3)',
     // border color (window, tabs)
-    borderColor: '#000',
+    borderColor: '#222',
     // custom CSS to embed in the main window
     css: '',
     // custom CSS to embed in the terminal window
@@ -137,7 +137,7 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: [],
+  plugins: ["hyper-pane", "hypercwd"],
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
   // to load it and avoid it being `npm install`ed
