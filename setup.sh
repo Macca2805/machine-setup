@@ -77,14 +77,6 @@ function install {
   fi
 }
 
-function importHyperSettings {
-  newline
-  running " - Import settings file"
-  rm -rf ~/.hyper.js
-  curl -fsSL https://raw.githubusercontent.com/Macca2805/machine-setup/main/hyper/.hyper.js > ~/.hyper.js
-  completed " - Import settings file"
-}
-
 function installVisualStudioCodeExtension {
   newline
   checking " - Extension: $1"
@@ -121,8 +113,7 @@ executeHomebrewCommand upgrade
 executeHomebrewCommand tap homebrew/cask-fonts
 
 install "font-jetbrains-mono"
-install "hyper"
-importHyperSettings
+install "warp"
 install "visual-studio-code"
 installVisualStudioCodeExtension "dbaeumer.vscode-eslint"
 installVisualStudioCodeExtension "yzhang.markdown-all-in-one"
@@ -130,6 +121,7 @@ installVisualStudioCodeExtension "bierner.markdown-mermaid"
 installVisualStudioCodeExtension "ms-azuretools.vscode-docker"
 installVisualStudioCodeExtension "GitHub.github-vscode-theme"
 importVisualStudioCodeSettings
+install "raycast"
 install "gitkraken"
 install "docker"
 install "slack"
