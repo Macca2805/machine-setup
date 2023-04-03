@@ -114,12 +114,14 @@ executeHomebrewCommand tap homebrew/cask-fonts
 
 install "font-jetbrains-mono"
 install "warp"
+install "terraform"
 install "visual-studio-code"
 installVisualStudioCodeExtension "dbaeumer.vscode-eslint"
 installVisualStudioCodeExtension "yzhang.markdown-all-in-one"
 installVisualStudioCodeExtension "bierner.markdown-mermaid"
 installVisualStudioCodeExtension "ms-azuretools.vscode-docker"
 installVisualStudioCodeExtension "GitHub.github-vscode-theme"
+installVisualStudioCodeExtension "hashicorp.terraform"
 importVisualStudioCodeSettings
 install "raycast"
 install "gitkraken"
