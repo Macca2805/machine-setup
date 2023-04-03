@@ -136,6 +136,8 @@ executeHomebrewCommand tap homebrew/cask-fonts
 installCask "font-jetbrains-mono"
 installCask "warp"
 install "terraform"
+install "awscli"
+install "saml2aws"
 installCask "visual-studio-code"
 installVisualStudioCodeExtension "dbaeumer.vscode-eslint"
 installVisualStudioCodeExtension "yzhang.markdown-all-in-one"
