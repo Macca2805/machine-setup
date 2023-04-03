@@ -64,7 +64,7 @@ function install {
   else
     running "brew install $1"
     set +e
-    /usr/local/bin/brew install --cask --force $1 >/dev/null 2>/tmp/err
+    /usr/local/bin/brew install --force $1 >/dev/null 2>/tmp/err
     set -e
     if [[ $? -ne 0 ]]; then
       failed "brew install $1"
@@ -73,6 +73,27 @@ function install {
       exit 1
     else
       completed "brew install $1"
+    fi
+  fi
+}
+
+function installCask {
+  newline
+  checking "brew install cask $1"
+  if [[ $(/usr/local/bin/brew list | grep $1) ]]; then
+    skipped "brew install cask $1"
+  else
+    running "brew install cask $1"
+    set +e
+    /usr/local/bin/brew install --cask --force $1 >/dev/null 2>/tmp/err
+    set -e
+    if [[ $? -ne 0 ]]; then
+      failed "brew install cask $1"
+      newline
+      grey $(cat /tmp/err)
+      exit 1
+    else
+      completed "brew install cask $1"
     fi
   fi
 }
@@ -112,10 +133,10 @@ executeHomebrewCommand update
 executeHomebrewCommand upgrade
 executeHomebrewCommand tap homebrew/cask-fonts
 
-install "font-jetbrains-mono"
-install "warp"
+installCask "font-jetbrains-mono"
+installCask "warp"
 install "terraform"
-install "visual-studio-code"
+installCask "visual-studio-code"
 installVisualStudioCodeExtension "dbaeumer.vscode-eslint"
 installVisualStudioCodeExtension "yzhang.markdown-all-in-one"
 installVisualStudioCodeExtension "bierner.markdown-mermaid"
@@ -123,12 +144,12 @@ installVisualStudioCodeExtension "ms-azuretools.vscode-docker"
 installVisualStudioCodeExtension "GitHub.github-vscode-theme"
 installVisualStudioCodeExtension "hashicorp.terraform"
 importVisualStudioCodeSettings
-install "raycast"
-install "gitkraken"
-install "docker"
-install "slack"
-install "1password"
-install "notion"
+installCask "raycast"
+installCask "gitkraken"
+installCask "docker"
+installCask "slack"
+installCask "1password"
+installCask "notion"
 
 executeHomebrewCommand cleanup
 newline
