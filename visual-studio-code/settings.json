@@ -1,6 +1,7 @@
 {
   "workbench.colorTheme": "GitHub Dark Default",
   "workbench.sideBar.location": "right",
+  "workbench.startupEditor": "none",
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
   "editor.codeActionsOnSave": {
@@ -37,5 +38,7 @@
     "**/.DS_Store": true,
     "**/Thumbs.db": true,
     "**/node_modules": true,
-  }
+  },
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 200
 }
