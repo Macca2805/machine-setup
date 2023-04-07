@@ -146,12 +146,14 @@ installVisualStudioCodeExtension "ms-azuretools.vscode-docker"
 installVisualStudioCodeExtension "GitHub.github-vscode-theme"
 installVisualStudioCodeExtension "hashicorp.terraform"
 importVisualStudioCodeSettings
+installCask "notion"
 installCask "raycast"
 installCask "gitkraken"
 installCask "docker"
 installCask "slack"
+installCask "vlc"
 installCask "1password"
-installCask "notion"
+installCask "keka"
 
 executeHomebrewCommand cleanup
 newline
