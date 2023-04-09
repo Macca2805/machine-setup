@@ -154,6 +154,7 @@ installCask "gitkraken"
 installCask "docker"
 installCask "slack"
 installCask "vlc"
+installCask "sketch"
 installCask "1password"
 installCask "keka"
 
