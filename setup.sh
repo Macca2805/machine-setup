@@ -135,6 +135,8 @@ executeHomebrewCommand tap homebrew/cask-fonts
 
 installCask "font-jetbrains-mono"
 installCask "warp"
+install "go"
+install "deno"
 install "terraform"
 install "awscli"
 install "saml2aws"
