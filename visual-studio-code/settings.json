@@ -48,11 +48,7 @@
     "editor.defaultFormatter": "golang.go",
     "editor.formatOnSave": false
   },
-  "go.languageServerExperimentalFeatures": {
-    "diagnostics": true,
-    "documentLink": true
-  },
-  "go.lintOnSave": true,
+  "go.lintOnSave": "file",
   "go.lintTool": "golangci-lint",
   "go.lintFlags": [
     "--fast"
